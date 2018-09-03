@@ -60,3 +60,17 @@ create table courses (
 )default charset = utf8;
 
 desc courses;
+
+insert into courses (id_course, course_name, description, workload, total_lessons) values
+(default, 'HTML5', 'This course will teach you how you can do simple pages in web', '12.5', '37'),
+(default, 'CSS3', 'Style your webpages in HTML with CSS3 ', '25.5', '59'),
+(default, 'JavaScript', 'Give life to your webpages with JS', '38.7', '84'),
+(default, 'PHP', 'Manipulate your data with this awesome language', '40', '90'),
+(default, 'SQL', 'Learn how to work with database', '19.7', '55'),
+(default, 'Git', 'Version your data with this simple language', '3', '28'),
+(default, 'Java', 'Do desktop applications and much more', '59.8', '104'),
+(default, 'C#', 'Learn the popular C language', '45', '77');
+
+select * from courses;
+
+
