@@ -72,5 +72,51 @@ insert into courses (id_course, course_name, description, workload, total_lesson
 (default, 'C#', 'Learn the popular C language', '45', '77');
 
 select * from courses;
+update courses set total_lessons = '82' where id_course = '4';
+
+create table student_course(
+	id_sc int not null auto_increment,
+    idstudent int,
+    idcourse int,
+    primary key (id_sc),
+    foreign key (idstudent) references students(id_student),
+    foreign key (idcourse) references courses(id_course)
+)default charset = utf8;
+
+desc student_course;
+
+insert into student_course (id_sc, idstudent, idcourse) values
+(default, '1', '3'),
+(default, '1', '2'),
+(default, '2', '4'),
+(default, '2', '1');
+
+insert into student_course (id_sc, idstudent, idcourse) values
+(default, '3', '7'),
+(default, '4', '2'),
+(default, '5', '8'),
+(default, '6', '3'),
+(default, '6', '7'),
+(default, '7', '8'),
+(default, '8', '1'),
+(default, '8', '2'),
+(default, '9', '5'),
+(default, '10', '3'),
+(default, '11', '7'),
+(default, '11', '8'),
+(default, '12', '5'),
+(default, '13', '8'),
+(default, '14', '7'),
+(default, '15', '6'),
+(default, '16', '6'),
+(default, '17', '6'),
+(default, '17', '1'),
+(default, '18', '2'),
+(default, '18', '1'),
+(default, '19', '6'),
+(default, '20', '4');
+
+select * from student_course;
+
 
 
