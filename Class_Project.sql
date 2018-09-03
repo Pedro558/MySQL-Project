@@ -49,3 +49,14 @@ insert into students (id_student, student_name, nationality, city, date_of_birth
 select * from students;
 
 delete from students where id_student = '21' limit 1;
+
+create table courses (
+	id_course int not null auto_increment,
+    course_name varchar(20),
+    description text (50),
+    workload float (3,1) unsigned,
+    total_lessons int unsigned,
+    primary key (id_course)
+)default charset = utf8;
+
+desc courses;
