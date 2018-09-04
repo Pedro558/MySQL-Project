@@ -116,7 +116,41 @@ insert into student_course (id_sc, idstudent, idcourse) values
 (default, '19', '6'),
 (default, '20', '4');
 
-select * from student_course;
+/*All data*/
+select * from students as std join student_course as sc
+on std.id_student = sc.idstudent
+join courses as cou
+on cou.id_course = sc.idcourse
+order by id_student, id_course;
+
+/*Selectioning the datas*/
+select st.student_name, st.nationality, st.city, st.date_of_birth, st.sex, st.profession, co.course_name, co.description, co.workload, co.total_lessons from students as st
+join student_course as sc
+on st.id_student = sc.idstudent
+join courses as co
+on co.id_course = sc.idcourse
+order by id_student, id_sc;
+
+/*Values bigger than average of workload*/
+select avg (workload) from courses;
+select st.student_name, co.course_name, co.workload, count(student_name) from students as st
+join student_course as sc
+on st.id_student = sc.idstudent
+join courses as co
+on co.id_course = sc.idcourse
+group by workload having workload > (select avg (workload) from courses);
+
+/*Height between x and y*/
+select student_name, height from students
+where height between 1.70 and 1.80
+order by height;
+
+/*People who live in United States*/
+select student_name, nationality, city from students
+where nationality like 'Uni%'
+order by city;
+
+
 
 
 
